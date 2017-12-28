@@ -8,9 +8,8 @@ import NavItem from "./nav_item";
 class Nav extends Component {
     constructor(props) {
       super(props);
-      this.handleClick = this.handleClick.bind(this)
       this.state = {
-          clicked_index:props.active_index
+          clicked_index:props.activeIndex
       }
     }
     handleClick(e,item){
@@ -20,6 +19,7 @@ class Nav extends Component {
         this.setState({
             clicked_index: item
         })
+        this.props.onNavChange(item)
     }
     render(){
 

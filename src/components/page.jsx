@@ -4,12 +4,9 @@ import "../scss/page.scss";
 class Page extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-          active:false
-      }
     }
     render(){
-        if(this.state.active){
+        if(this.props.active){
             return (
                 <div className="page active">
                     <h1>{this.props.title}</h1>
