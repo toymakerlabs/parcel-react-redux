@@ -8,14 +8,30 @@ import NavItem from "./nav_item";
 class Nav extends Component {
     constructor(props) {
       super(props);
+      this.handleClick = this.handleClick.bind(this)
+      this.state = {
+          clicked_index:props.active_index
+      }
+    }
+    handleClick(e,item){
+        console.log(item)
+        e.preventDefault();
+        e.stopPropagation();
+        this.setState({
+            clicked_index: item
+        })
     }
     render(){
+
         return(
             <ul className='navbar'>
                 {
                     this.props.links.map(function(link, i){
-			            return <li key={link.id} ><NavItem title={link.title} url={link.url} /></li>
-                    })
+                        if (this.state.clicked_index == i){
+                            return <li key={link.id} onClick={(e) => this.handleClick(e,i)} ><NavItem title={link.title} url={link.url} active={true} /></li>
+                        }
+			            return <li key={link.id} onClick={(e) => this.handleClick(e,i)} ><NavItem title={link.title} url={link.url} active={false} /></li>
+                    }.bind(this))
                  }
             </ul>
         )

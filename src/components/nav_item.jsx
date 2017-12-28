@@ -5,8 +5,15 @@ class NavItem extends Component {
       super(props);
     }
     render(){
+        let item_class;
+
+        if(this.props.active == true){
+            item_class = "highlighted"
+        }else{
+            item_class = ""
+        }
         return(
-            <a href={this.props.url}>{this.props.title}</a>
+            <a className={item_class} href={this.props.url}>{this.props.title}</a>
         )
     }
 
