@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Page from "./page"
 import "../scss/main.scss";
 
 class Main extends Component {
@@ -7,7 +8,10 @@ class Main extends Component {
     }
     render(){
         return(
-            <h1>hi</h1>
+            <div className="pages-container">
+                <Page title={"page one"} />
+                <Page title={"page two"} />
+            </div>
         )
     }
 
